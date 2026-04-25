@@ -26,6 +26,9 @@ services:
 
   # ── FastAPI backend ────────────────────────────────────────────────────────
   backend:
+    # In CI, BACKEND_IMAGE env var is set to carbon-tracker-backend:ci
+    # so the pre-built image is reused without a second docker build.
+    image: ${BACKEND_IMAGE:-carbon-tracker-backend:latest}
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -42,7 +45,8 @@ services:
     volumes:
       # Bind-mount your local models/ and data/ so the container picks up
       # updated artefacts without a rebuild.
-      - ./backend/models:/app/models:ro
+      # rw (not ro) so CI stub files written before compose-up are visible.
+      - ./backend/models:/app/models
       - ./backend/data:/app/data:ro
     ports:
       - "8000:8000"
@@ -58,12 +62,11 @@ services:
 
   # ── React / Vite → Nginx frontend ─────────────────────────────────────────
   frontend:
+    image: ${FRONTEND_IMAGE:-carbon-tracker-frontend:latest}
     build:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        # Nginx proxies /api to the backend service internally;
-        # the browser never needs to know the backend URL directly.
         VITE_API_BASE_URL: ""
     restart: unless-stopped
     ports:
