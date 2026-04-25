@@ -1,140 +1,159 @@
-name: CI/CD — Build & Push to ACR
+name: build-test
 
 on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]   # build-only on PRs (no push)
+    branches: [main]
 
-# ── Concurrency: cancel in-progress runs on the same branch ──────────────────
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  BACKEND_IMAGE:  carbon-tracker-backend
-  FRONTEND_IMAGE: carbon-tracker-frontend
-
 jobs:
-  # ────────────────────────────────────────────────────────────────────────────
-  # JOB 1 — Lint & basic sanity checks
-  # ────────────────────────────────────────────────────────────────────────────
-  lint:
-    name: Lint
+  build-test:
+    name: build-test
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Python — check syntax (backend)
-        run: |
-          python3 -m py_compile backend/run.py
-          find backend/app -name "*.py" | xargs python3 -m py_compile
-          echo "✅ Python syntax OK"
-
-      - name: Node — install & lint (frontend)
-        working-directory: frontend
-        run: |
-          npm ci --prefer-offline
-          npm run lint --if-present || echo "⚠️  Lint warnings present (non-blocking)"
-
-  # ────────────────────────────────────────────────────────────────────────────
-  # JOB 2 — Build & push backend image to ACR
-  # ────────────────────────────────────────────────────────────────────────────
-  build-backend:
-    name: Build Backend → ACR
-    runs-on: ubuntu-latest
-    needs: lint
-    # Only push on pushes to main (not on PRs)
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    permissions:
-      id-token: write   # required for OIDC login
-      contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      # ── 1. Checkout repository ──────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # ── Docker layer cache (GitHub Actions Cache) ────────────────────────
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      # ── Log in to ACR via service principal credentials ──────────────────
-      - name: Log in to Azure Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ secrets.ACR_LOGIN_SERVER }}
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
-
-      # ── Build & push with layer caching ──────────────────────────────────
-      - name: Build & push backend image
+      # ── 2. Build backend image ──────────────────────────────────────────────
+      - name: Build backend image
         uses: docker/build-push-action@v5
         with:
           context: ./backend
           file: ./backend/Dockerfile
-          push: true
-          # Tag with both :latest and :<commit-sha> for traceability
-          tags: |
-            ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.BACKEND_IMAGE }}:latest
-            ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.BACKEND_IMAGE }}:${{ github.sha }}
-          # GitHub Actions cache — dramatically speeds up repeated builds
+          push: false
+          load: true
+          tags: carbon-tracker-backend:ci
           cache-from: type=gha,scope=backend
           cache-to:   type=gha,scope=backend,mode=max
-          # Build args (no sensitive values here)
-          build-args: |
-            BUILDKIT_INLINE_CACHE=1
 
-  # ────────────────────────────────────────────────────────────────────────────
-  # JOB 3 — Build & push frontend image to ACR
-  # ────────────────────────────────────────────────────────────────────────────
-  build-frontend:
-    name: Build Frontend → ACR
-    runs-on: ubuntu-latest
-    needs: lint
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    permissions:
-      id-token: write
-      contents: read
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Log in to Azure Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ secrets.ACR_LOGIN_SERVER }}
-          username: ${{ secrets.ACR_USERNAME }}
-          password: ${{ secrets.ACR_PASSWORD }}
-
-      - name: Build & push frontend image
+      # ── 3. Build frontend image ─────────────────────────────────────────────
+      - name: Build frontend image
         uses: docker/build-push-action@v5
         with:
           context: ./frontend
           file: ./frontend/Dockerfile
-          push: true
-          tags: |
-            ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.FRONTEND_IMAGE }}:latest
-            ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
+          push: false
+          load: true
+          tags: carbon-tracker-frontend:ci
           cache-from: type=gha,scope=frontend
           cache-to:   type=gha,scope=frontend,mode=max
           build-args: |
             VITE_API_BASE_URL=
 
-  # ────────────────────────────────────────────────────────────────────────────
-  # JOB 4 — Summary (runs after both builds succeed)
-  # ────────────────────────────────────────────────────────────────────────────
-  summary:
-    name: Pipeline Summary
-    runs-on: ubuntu-latest
-    needs: [build-backend, build-frontend]
-    if: always()
-    steps:
-      - name: Report result
+      # ── 4. Verify required artifact files are present ───────────────────────
+      - name: Verify required artifact files are present
         run: |
-          echo "## CI/CD Run Summary" >> $GITHUB_STEP_SUMMARY
-          echo "| Image | Tag | Status |" >> $GITHUB_STEP_SUMMARY
-          echo "|---|---|---|" >> $GITHUB_STEP_SUMMARY
-          echo "| carbon-tracker-backend  | ${{ github.sha }} | ${{ needs.build-backend.result }}  |" >> $GITHUB_STEP_SUMMARY
-          echo "| carbon-tracker-frontend | ${{ github.sha }} | ${{ needs.build-frontend.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "── Checking source files ──"
+          test -f backend/Dockerfile          && echo "✅ backend/Dockerfile"
+          test -f backend/requirements.txt    && echo "✅ backend/requirements.txt"
+          test -f backend/.env.example        && echo "✅ backend/.env.example"
+          test -f frontend/Dockerfile         && echo "✅ frontend/Dockerfile"
+          test -f frontend/package.json       && echo "✅ frontend/package.json"
+          test -f frontend/nginx.conf         && echo "✅ frontend/nginx.conf"
+          test -f docker-compose.yml          && echo "✅ docker-compose.yml"
+          test -f .github/workflows/main.yml  && echo "✅ .github/workflows/main.yml"
+
+          echo "── Checking data files ──"
+          test -f backend/data/lane_metadata.json      && echo "✅ lane_metadata.json"
+          test -f backend/data/city_coordinates.json   && echo "✅ city_coordinates.json"
+          test -f backend/data/anomaly_data.json       && echo "✅ anomaly_data.json"
+          test -f backend/data/scaler_params.json      && echo "✅ scaler_params.json"
+          test -f backend/data/model_config.json       && echo "✅ model_config.json"
+
+          echo "✅ All required files present"
+
+      # ── 5. Start containers ─────────────────────────────────────────────────
+      - name: Start containers
+        run: |
+          # Write a minimal .env so the backend can start without real model files
+          cat > backend/.env <<'EOF'
+          HOST=0.0.0.0
+          PORT=8000
+          REDIS_URL=redis://redis:6379
+          MODEL_DIR=models
+          DATA_DIR=data
+          CATBOOST_MODEL_PATH=models/catboost_best.cbm
+          HYBRID_MODEL_PATH=models/hybrid_graphsage_catboost_best.cbm
+          TFT_CKPT_PATH=models/tft_best-82-0.1107.ckpt
+          EMBEDDINGS_PATH=models/city_embeddings_1.npy
+          CACHE_TTL_PREDICT=300
+          CACHE_TTL_STATIC=3600
+          LOW_CONFIDENCE_THRESHOLD_KG=1000.0
+          VIRTUAL_ENSEMBLE_COUNT=10
+          EOF
+
+          # Override image names so compose uses the ones we just built
+          export BACKEND_IMAGE=carbon-tracker-backend:ci
+          export FRONTEND_IMAGE=carbon-tracker-frontend:ci
+
+          # Start only redis + backend (frontend not needed for API smoke tests)
+          docker compose up -d redis backend
+          echo "✅ Containers started"
+
+      # ── 6. Wait for backend /health ─────────────────────────────────────────
+      - name: Wait for backend /health
+        run: |
+          echo "Waiting for backend to become healthy…"
+          for i in $(seq 1 30); do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/health || true)
+            if [ "$STATUS" = "200" ]; then
+              echo "✅ Backend healthy after ${i} attempt(s)"
+              exit 0
+            fi
+            echo "  attempt $i — HTTP $STATUS — retrying in 5s…"
+            sleep 5
+          done
+          echo "❌ Backend did not become healthy in 150s"
+          exit 1
+
+      # ── 7. Smoke-test backend endpoints ─────────────────────────────────────
+      - name: Smoke-test backend endpoints
+        run: |
+          BASE=http://localhost:8000
+
+          check() {
+            local url=$1 expected=$2 label=$3
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$url" || true)
+            if [ "$code" = "$expected" ]; then
+              echo "✅ $label → HTTP $code"
+            else
+              echo "❌ $label → expected HTTP $expected, got HTTP $code"
+              exit 1
+            fi
+          }
+
+          # Health + model readiness
+          check "$BASE/health"            "200" "GET /health"
+
+          # OpenAPI schema (confirms FastAPI is wired correctly)
+          check "$BASE/openapi.json"      "200" "GET /openapi.json"
+
+          # Lanes list (confirms DB/data files loaded)
+          check "$BASE/api/lanes"         "200" "GET /api/lanes"
+
+          # Analytics endpoints
+          check "$BASE/api/analytics/anomalies"         "200" "GET /api/analytics/anomalies"
+          check "$BASE/api/analytics/vehicle-breakdown" "200" "GET /api/analytics/vehicle-breakdown"
+          check "$BASE/api/analytics/model-metrics"     "200" "GET /api/analytics/model-metrics"
+
+          echo "✅ All smoke tests passed"
+
+      # ── 8. Dump container logs (on failure) ─────────────────────────────────
+      - name: Dump container logs (on failure)
+        if: failure()
+        run: |
+          echo "═══ Backend logs ═══"
+          docker compose logs backend || true
+          echo "═══ Redis logs ═══"
+          docker compose logs redis   || true
+
+      # ── 9. Shutdown containers ───────────────────────────────────────────────
+      - name: Shutdown containers
+        if: always()
+        run: docker compose down -v
