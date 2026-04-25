@@ -1,4 +1,4 @@
-name: build-test
+name: build-test-deploy
 
 on:
   push:
@@ -10,35 +10,40 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  BACKEND_IMAGE: carbon-tracker-backend
+  FRONTEND_IMAGE: carbon-tracker-frontend
+
 jobs:
+  # ════════════════════════════════════════════════════════════════════════════
+  # JOB 1: Build & Test (runs on every push and PR)
+  # ════════════════════════════════════════════════════════════════════════════
   build-test:
-    name: build-test
+    name: Build & Test
     runs-on: ubuntu-latest
 
     steps:
-      # ── 1. Checkout repository ──────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── 2. Build backend image ──────────────────────────────────────────────
+      # ── Build images ────────────────────────────────────────────────────────
       - name: Build backend image
         run: |
           docker build \
-            -t carbon-tracker-backend:ci \
+            -t ${{ env.BACKEND_IMAGE }}:ci \
             -f backend/Dockerfile \
             ./backend
 
-      # ── 3. Build frontend image ─────────────────────────────────────────────
       - name: Build frontend image
         run: |
           docker build \
-            -t carbon-tracker-frontend:ci \
+            -t ${{ env.FRONTEND_IMAGE }}:ci \
             -f frontend/Dockerfile \
             --build-arg VITE_API_BASE_URL="" \
             ./frontend
 
-      # ── 4. Verify required artifact files are present ───────────────────────
-      - name: Verify required artifact files are present
+      # ── Verify artifact files ───────────────────────────────────────────────
+      - name: Verify required artifact files
         run: |
           set -e
           check() { test -f "$1" && echo "OK: $1" || { echo "MISSING: $1"; exit 1; }; }
@@ -57,12 +62,11 @@ jobs:
           check backend/data/model_config.json
           echo "All required files present"
 
-      # ── 5. Start containers ─────────────────────────────────────────────────
+      # ── Start containers for smoke testing ──────────────────────────────────
       - name: Start containers
         run: |
           set -e
 
-          # Write .env using printf (avoids heredoc indentation issues in YAML)
           printf '%s\n' \
             'HOST=0.0.0.0' \
             'PORT=8000' \
@@ -80,16 +84,15 @@ jobs:
             'CI_MODE=true' \
             > backend/.env
 
-          # Use pre-built :ci images — skip rebuild inside compose
-          export BACKEND_IMAGE=carbon-tracker-backend:ci
-          export FRONTEND_IMAGE=carbon-tracker-frontend:ci
+          export BACKEND_IMAGE=${{ env.BACKEND_IMAGE }}:ci
+          export FRONTEND_IMAGE=${{ env.FRONTEND_IMAGE }}:ci
 
           docker compose up -d redis
           sleep 3
           docker compose up -d backend
           echo "Containers started"
 
-      # ── 6. Wait for backend /health ─────────────────────────────────────────
+      # ── Health check ────────────────────────────────────────────────────────
       - name: Wait for backend /health
         run: |
           echo "Waiting for backend to become healthy..."
@@ -105,7 +108,7 @@ jobs:
           echo "ERROR: Backend did not become healthy within 150s"
           exit 1
 
-      # ── 7. Smoke-test backend endpoints ─────────────────────────────────────
+      # ── Smoke tests ────────────────────────────────────────────────────────
       - name: Smoke-test backend endpoints
         run: |
           set -e
@@ -131,7 +134,7 @@ jobs:
 
           echo "All smoke tests passed"
 
-      # ── 8. Dump container logs (on failure) ─────────────────────────────────
+      # ── Cleanup ─────────────────────────────────────────────────────────────
       - name: Dump container logs (on failure)
         if: failure()
         run: |
@@ -140,7 +143,109 @@ jobs:
           echo "=== redis logs ==="
           docker compose logs --no-color redis   || true
 
-      # ── 9. Shutdown containers ───────────────────────────────────────────────
       - name: Shutdown containers
         if: always()
         run: docker compose down -v --remove-orphans
+
+  # ════════════════════════════════════════════════════════════════════════════
+  # JOB 2: Push to ACR + Deploy to Azure (only on main branch push)
+  # ════════════════════════════════════════════════════════════════════════════
+  deploy:
+    name: Push to ACR & Deploy
+    runs-on: ubuntu-latest
+    needs: build-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Login to Azure ──────────────────────────────────────────────────────
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # ── Login to ACR ────────────────────────────────────────────────────────
+      - name: Login to ACR
+        uses: azure/docker-login@v2
+        with:
+          login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      # ── Build & Push Backend ────────────────────────────────────────────────
+      - name: Build & Push Backend to ACR
+        run: |
+          IMAGE=${{ secrets.ACR_LOGIN_SERVER }}/${{ env.BACKEND_IMAGE }}
+          SHA_TAG=${GITHUB_SHA::8}
+
+          docker build \
+            -t $IMAGE:latest \
+            -t $IMAGE:$SHA_TAG \
+            -f backend/Dockerfile \
+            ./backend
+
+          docker push $IMAGE:latest
+          docker push $IMAGE:$SHA_TAG
+
+          echo "Pushed: $IMAGE:latest and $IMAGE:$SHA_TAG"
+
+      # ── Build & Push Frontend ───────────────────────────────────────────────
+      - name: Build & Push Frontend to ACR
+        run: |
+          IMAGE=${{ secrets.ACR_LOGIN_SERVER }}/${{ env.FRONTEND_IMAGE }}
+          SHA_TAG=${GITHUB_SHA::8}
+
+          docker build \
+            -t $IMAGE:latest \
+            -t $IMAGE:$SHA_TAG \
+            -f frontend/Dockerfile \
+            --build-arg VITE_API_BASE_URL="" \
+            ./frontend
+
+          docker push $IMAGE:latest
+          docker push $IMAGE:$SHA_TAG
+
+          echo "Pushed: $IMAGE:latest and $IMAGE:$SHA_TAG"
+
+      # ── Deploy Backend to Container Apps ────────────────────────────────────
+      - name: Deploy Backend
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          resourceGroup: ${{ secrets.AZURE_RG }}
+          containerAppName: ${{ secrets.BACKEND_APP_NAME }}
+          imageToDeploy: ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.BACKEND_IMAGE }}:latest
+
+      # ── Deploy Frontend to Container Apps ───────────────────────────────────
+      - name: Deploy Frontend
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          resourceGroup: ${{ secrets.AZURE_RG }}
+          containerAppName: ${{ secrets.FRONTEND_APP_NAME }}
+          imageToDeploy: ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.FRONTEND_IMAGE }}:latest
+
+      # ── Verify deployment ───────────────────────────────────────────────────
+      - name: Verify deployment health
+        run: |
+          echo "Waiting 30s for new revisions to become active..."
+          sleep 30
+
+          FRONTEND_FQDN=$(az containerapp show \
+            --name ${{ secrets.FRONTEND_APP_NAME }} \
+            --resource-group ${{ secrets.AZURE_RG }} \
+            --query "properties.configuration.ingress.fqdn" -o tsv)
+
+          echo "Frontend URL: https://${FRONTEND_FQDN}"
+
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://${FRONTEND_FQDN}" 2>/dev/null || echo "000")
+          if [ "$STATUS" = "200" ]; then
+            echo "Deployment verified - HTTP $STATUS"
+          else
+            echo "WARNING: Frontend returned HTTP $STATUS (may still be starting)"
+          fi
+
+      # ── Azure logout ────────────────────────────────────────────────────────
+      - name: Azure Logout
+        if: always()
+        run: az logout
