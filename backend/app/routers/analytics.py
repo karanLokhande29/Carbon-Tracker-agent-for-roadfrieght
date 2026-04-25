@@ -82,41 +82,46 @@ async def get_vehicle_breakdown(
         pass
 
     if _breakdown_cache is None:
-        df = pd.read_csv(
-            settings.resolved_data_dir / "india_freight_emissions.csv",
-            usecols=["date", "vehicle_type", "co2e_kg", "distance_km", "weight_tons"],
-            parse_dates=["date"],
-        )
-        df["year_month"] = df["date"].dt.to_period("M").astype(str)
-
-        grouped = (
-            df.groupby(["year_month", "vehicle_type"])
-            .agg(
-                total_co2e_kg=("co2e_kg", "sum"),
-                total_distance=("distance_km", "sum"),
-                total_weight=("weight_tons", "sum"),
-                shipment_count=("co2e_kg", "count"),
+        csv_path = settings.resolved_data_dir / "india_freight_emissions.csv"
+        if not csv_path.exists():
+            logger.warning("CSV %s not found — returning empty breakdown", csv_path)
+            _breakdown_cache = []
+        else:
+            df = pd.read_csv(
+                csv_path,
+                usecols=["date", "vehicle_type", "co2e_kg", "distance_km", "weight_tons"],
+                parse_dates=["date"],
             )
-            .reset_index()
-        )
-        grouped["avg_co2e_per_km"] = (
-            grouped["total_co2e_kg"] / grouped["total_distance"].replace(0, 1)
-        ).round(4)
-        grouped["avg_co2e_per_tonne"] = (
-            grouped["total_co2e_kg"] / grouped["total_weight"].replace(0, 1)
-        ).round(4)
-        grouped["total_co2e_kg"] = grouped["total_co2e_kg"].round(1)
+            df["year_month"] = df["date"].dt.to_period("M").astype(str)
 
-        _breakdown_cache = grouped[
-            [
-                "year_month",
-                "vehicle_type",
-                "total_co2e_kg",
-                "avg_co2e_per_km",
-                "avg_co2e_per_tonne",
-                "shipment_count",
-            ]
-        ].to_dict(orient="records")
+            grouped = (
+                df.groupby(["year_month", "vehicle_type"])
+                .agg(
+                    total_co2e_kg=("co2e_kg", "sum"),
+                    total_distance=("distance_km", "sum"),
+                    total_weight=("weight_tons", "sum"),
+                    shipment_count=("co2e_kg", "count"),
+                )
+                .reset_index()
+            )
+            grouped["avg_co2e_per_km"] = (
+                grouped["total_co2e_kg"] / grouped["total_distance"].replace(0, 1)
+            ).round(4)
+            grouped["avg_co2e_per_tonne"] = (
+                grouped["total_co2e_kg"] / grouped["total_weight"].replace(0, 1)
+            ).round(4)
+            grouped["total_co2e_kg"] = grouped["total_co2e_kg"].round(1)
+
+            _breakdown_cache = grouped[
+                [
+                    "year_month",
+                    "vehicle_type",
+                    "total_co2e_kg",
+                    "avg_co2e_per_km",
+                    "avg_co2e_per_tonne",
+                    "shipment_count",
+                ]
+            ].to_dict(orient="records")
 
     try:
         await rd.set(
