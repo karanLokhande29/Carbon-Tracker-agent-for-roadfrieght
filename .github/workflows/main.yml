@@ -77,15 +77,8 @@ jobs:
             'CACHE_TTL_STATIC=3600' \
             'LOW_CONFIDENCE_THRESHOLD_KG=1000.0' \
             'VIRTUAL_ENSEMBLE_COUNT=10' \
+            'CI_MODE=true' \
             > backend/.env
-
-          # Create stub model files so config.py path validator passes
-          mkdir -p backend/models
-          touch backend/models/catboost_best.cbm
-          touch backend/models/hybrid_graphsage_catboost_best.cbm
-          touch backend/models/tft_best-82-0.1107.ckpt
-          touch backend/models/city_embeddings_1.npy
-          echo "Stub model files created"
 
           # Use pre-built :ci images — skip rebuild inside compose
           export BACKEND_IMAGE=carbon-tracker-backend:ci

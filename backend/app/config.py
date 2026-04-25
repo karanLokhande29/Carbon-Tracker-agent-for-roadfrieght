@@ -63,7 +63,10 @@ class Settings(BaseModel):
 
     @model_validator(mode="after")
     def validate_model_paths(self) -> "Settings":
-        """Ensure all model files exist at startup."""
+        """Ensure all model files exist at startup (skipped in CI_MODE)."""
+        if os.getenv("CI_MODE", "").lower() in ("1", "true", "yes"):
+            logger.info("CI_MODE=true — skipping model path validation")
+            return self
         paths = {
             "CATBOOST_MODEL_PATH": self.resolved_catboost_path,
             "HYBRID_MODEL_PATH": self.resolved_hybrid_path,

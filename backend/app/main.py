@@ -12,6 +12,7 @@ Startup sequence (lifespan):
 from __future__ import annotations
 
 import logging
+import os
 import time
 from contextlib import asynccontextmanager
 
@@ -36,6 +37,19 @@ async def lifespan(app: FastAPI):
     from app.config import get_settings
 
     settings = get_settings()
+
+    # ── CI_MODE: skip all model loading, inject stubs ─────────────────
+    if os.getenv("CI_MODE", "").lower() in ("1", "true", "yes"):
+        logger.info("CI_MODE=true — skipping model loading, injecting stubs")
+        app.state.redis = _DummyRedis()
+        app.state.catboost = _DummyCatBoost()
+        app.state.graphsage = _DummyGraphSAGE()
+        app.state.recommendations = _DummyRecommendations()
+        app.state.tft = _DummyTFT()
+        logger.info("═══ CI stubs ready (%.1fs) ═══", time.time() - t0)
+        yield
+        logger.info("Backend shutdown complete.")
+        return
 
     # ── 1. Redis ──────────────────────────────────────────────────
     logger.info("Connecting to Redis @ %s …", settings.REDIS_URL)
@@ -168,6 +182,47 @@ class _DummyRedis:
 
     async def close(self):
         pass
+
+
+class _DummyCatBoost:
+    """CI stub — returns zero prediction without loading any model file."""
+
+    _lane_meta: dict = {}
+
+    def get_lane_metadata(self, lane_id: str) -> dict:
+        return self._lane_meta.get(lane_id, {})
+
+    def predict(self, req) -> dict:
+        return {"prediction_kg": 0.0, "confidence_score": 0.0,
+                "confidence_level": "low", "low_confidence_warning": True,
+                "model_used": "ci_stub", "origin": "", "destination": "",
+                "distance_km": 0.0, "fuel_cost_inr": 0.0}
+
+    def predict_hybrid(self, req, graphsage_service=None) -> dict:
+        return self.predict(req)
+
+    def predict_shap(self, req) -> list:
+        return []
+
+    def predict_batch(self, rows) -> list:
+        return [0.0] * len(rows)
+
+
+class _DummyGraphSAGE:
+    """CI stub for GraphSAGE embeddings."""
+
+    def get_city_embedding(self, city: str):
+        return None
+
+    def get_all_embeddings(self) -> dict:
+        return {}
+
+
+class _DummyRecommendations:
+    """CI stub for recommendation service."""
+
+    def get_recommendations(self, req) -> list:
+        return []
 
 
 class _DummyTFT:
