@@ -1,0 +1,42 @@
+{
+  "catboost_features": [
+    "lane_id",
+    "origin",
+    "destination",
+    "vehicle_type",
+    "distance_km",
+    "weight_tons",
+    "month",
+    "week_of_year",
+    "week_of_month",
+    "sin_time",
+    "cos_time",
+    "sin_week",
+    "cos_week",
+    "traffic_index",
+    "weather_index",
+    "load_factor",
+    "fuel_efficiency",
+    "fuel_price_index",
+    "toll_cost_index",
+    "driver_efficiency_index",
+    "route_risk_index",
+    "traffic_weather_interaction",
+    "fuel_toll_interaction",
+    "risk_congestion_interaction",
+    "driver_context_interaction",
+    "co2e_kg_lag_1",
+    "co2e_kg_lag_4",
+    "co2e_kg_lag_12",
+    "co2e_kg_rollmean_4",
+    "co2e_kg_rollmean_12",
+    "is_anomaly_week",
+    "is_shipment_spike"
+  ],
+  "categorical_features": [
+    "lane_id",
+    "origin",
+    "destination",
+    "vehicle_type"
+  ]
+}

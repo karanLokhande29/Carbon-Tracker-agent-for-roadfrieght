@@ -1,0 +1,23 @@
+{
+  "total_rows": 206678,
+  "date_range": [
+    "2023-01-02",
+    "2027-12-20"
+  ],
+  "lanes": 140,
+  "cities": 30,
+  "vehicle_types": [
+    "road_articulated_diesel",
+    "road_rigid_electric",
+    "road_cng",
+    "road_lcv_diesel",
+    "road_rigid_diesel"
+  ],
+  "co2e_range_kg": [
+    24.9,
+    29095.4
+  ],
+  "avg_co2e_kg": 2403.2,
+  "anomaly_weeks": 7322,
+  "shipment_spikes": 1327
+}

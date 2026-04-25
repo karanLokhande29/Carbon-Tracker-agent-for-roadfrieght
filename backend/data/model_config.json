@@ -1,0 +1,65 @@
+{
+  "catboost": {
+    "path": "models/catboost_best.cbm",
+    "type": "catboost",
+    "metrics": {
+      "val_rmse": 177.9,
+      "val_mae": 119.6,
+      "val_r2": 0.9842,
+      "val_mape": 6.78,
+      "test_rmse": 180.2,
+      "test_mae": 119.7,
+      "test_r2": 0.984,
+      "test_mape": 6.62
+    },
+    "best_for": "per_shipment_prediction",
+    "inference_ms": 5
+  },
+  "hybrid_graphsage": {
+    "path": "models/hybrid_graphsage_catboost_best.cbm",
+    "type": "catboost",
+    "embeddings_path": "models/city_embeddings_1.npy",
+    "metrics": {
+      "val_rmse": 216.9,
+      "val_mae": 131.5,
+      "val_r2": 0.9882,
+      "val_mape": 5.91,
+      "test_rmse": 228.6,
+      "test_mae": 135.2,
+      "test_r2": 0.9875,
+      "test_mape": 5.74
+    },
+    "best_for": "lane_network_analysis",
+    "inference_ms": 8
+  },
+  "tft": {
+    "path": "models/tft_best-82-0.1107.ckpt",
+    "type": "pytorch_forecasting_tft",
+    "metrics": {
+      "val_rmse": 788.4,
+      "val_mape": 20.51,
+      "val_mae": 448.6,
+      "val_within_10pct": 37.5,
+      "val_within_20pct": 63.9,
+      "val_loss": 0.1107,
+      "epoch": 82,
+      "quantile_calibration": "near_ideal",
+      "test_rmse": 906.3,
+      "test_mape": 24.16
+    },
+    "best_for": "temporal_forecasting",
+    "inference_ms": 2000,
+    "low_confidence_threshold_kg": 1000,
+    "quantiles": [
+      0.02,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      0.98
+    ],
+    "max_encoder_length": 52,
+    "max_prediction_length": 4
+  }
+}

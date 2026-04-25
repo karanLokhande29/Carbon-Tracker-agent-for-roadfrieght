@@ -1,0 +1,2784 @@
+[
+  {
+    "date": "2023-01-09",
+    "lane_count": 2,
+    "total_co2e": 15544.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2023-01-16",
+    "lane_count": 3,
+    "total_co2e": 30810.3,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-01-23",
+    "lane_count": 2,
+    "total_co2e": 32152.8,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-01-30",
+    "lane_count": 4,
+    "total_co2e": 136267.2,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-02-06",
+    "lane_count": 7,
+    "total_co2e": 153194.9,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-02-13",
+    "lane_count": 5,
+    "total_co2e": 40619.3,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-02-20",
+    "lane_count": 7,
+    "total_co2e": 69585.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-02-27",
+    "lane_count": 7,
+    "total_co2e": 70435.4,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-03-06",
+    "lane_count": 11,
+    "total_co2e": 130584.3,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-03-13",
+    "lane_count": 5,
+    "total_co2e": 57116.5,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-03-20",
+    "lane_count": 5,
+    "total_co2e": 62366.8,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-03-27",
+    "lane_count": 3,
+    "total_co2e": 16603.9,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-04-03",
+    "lane_count": 5,
+    "total_co2e": 80186.8,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-04-10",
+    "lane_count": 6,
+    "total_co2e": 58943.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2023-04-17",
+    "lane_count": 7,
+    "total_co2e": 50653.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2023-04-24",
+    "lane_count": 8,
+    "total_co2e": 91756.5,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-05-01",
+    "lane_count": 4,
+    "total_co2e": 45477.2,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-05-08",
+    "lane_count": 4,
+    "total_co2e": 97405.9,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-05-15",
+    "lane_count": 4,
+    "total_co2e": 52417.9,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2023-05-22",
+    "lane_count": 5,
+    "total_co2e": 134587.9,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-05-29",
+    "lane_count": 8,
+    "total_co2e": 186710.9,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-06-05",
+    "lane_count": 5,
+    "total_co2e": 81000.2,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-06-12",
+    "lane_count": 3,
+    "total_co2e": 84296.3,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2023-06-19",
+    "lane_count": 5,
+    "total_co2e": 125190.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2023-06-26",
+    "lane_count": 5,
+    "total_co2e": 67732.4,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-07-03",
+    "lane_count": 7,
+    "total_co2e": 86642.0,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-07-10",
+    "lane_count": 6,
+    "total_co2e": 60514.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2023-07-17",
+    "lane_count": 9,
+    "total_co2e": 114436.4,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2023-07-24",
+    "lane_count": 10,
+    "total_co2e": 173487.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-07-31",
+    "lane_count": 7,
+    "total_co2e": 94668.2,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2023-08-07",
+    "lane_count": 7,
+    "total_co2e": 96988.0,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-08-14",
+    "lane_count": 4,
+    "total_co2e": 59370.8,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2023-08-21",
+    "lane_count": 3,
+    "total_co2e": 50033.8,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-08-28",
+    "lane_count": 6,
+    "total_co2e": 86010.4,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-09-04",
+    "lane_count": 5,
+    "total_co2e": 54103.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-09-11",
+    "lane_count": 6,
+    "total_co2e": 115282.4,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_electric",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2023-09-18",
+    "lane_count": 5,
+    "total_co2e": 145664.4,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-09-25",
+    "lane_count": 6,
+    "total_co2e": 57436.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-10-02",
+    "lane_count": 4,
+    "total_co2e": 43675.6,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2023-10-09",
+    "lane_count": 3,
+    "total_co2e": 25607.5,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-10-16",
+    "lane_count": 5,
+    "total_co2e": 67912.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-10-23",
+    "lane_count": 5,
+    "total_co2e": 72120.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-10-30",
+    "lane_count": 4,
+    "total_co2e": 40716.5,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-11-06",
+    "lane_count": 5,
+    "total_co2e": 50688.1,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-11-13",
+    "lane_count": 4,
+    "total_co2e": 23580.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-11-20",
+    "lane_count": 5,
+    "total_co2e": 57162.8,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-11-27",
+    "lane_count": 5,
+    "total_co2e": 52106.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-12-04",
+    "lane_count": 6,
+    "total_co2e": 62038.3,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2023-12-11",
+    "lane_count": 5,
+    "total_co2e": 36211.9,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2023-12-18",
+    "lane_count": 3,
+    "total_co2e": 29834.7,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2023-12-25",
+    "lane_count": 2,
+    "total_co2e": 33635.6,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2024-01-01",
+    "lane_count": 1,
+    "total_co2e": 25035.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-01-08",
+    "lane_count": 6,
+    "total_co2e": 57281.6,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2024-01-15",
+    "lane_count": 6,
+    "total_co2e": 73134.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2024-01-22",
+    "lane_count": 3,
+    "total_co2e": 11094.9,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-01-29",
+    "lane_count": 5,
+    "total_co2e": 72854.6,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-02-05",
+    "lane_count": 3,
+    "total_co2e": 24096.3,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-02-12",
+    "lane_count": 3,
+    "total_co2e": 37804.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-02-19",
+    "lane_count": 5,
+    "total_co2e": 83462.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-02-26",
+    "lane_count": 4,
+    "total_co2e": 73242.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-03-04",
+    "lane_count": 5,
+    "total_co2e": 121840.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-03-11",
+    "lane_count": 4,
+    "total_co2e": 52829.4,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-03-18",
+    "lane_count": 9,
+    "total_co2e": 99151.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-03-25",
+    "lane_count": 5,
+    "total_co2e": 102837.6,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-04-01",
+    "lane_count": 5,
+    "total_co2e": 60000.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-04-08",
+    "lane_count": 6,
+    "total_co2e": 108024.8,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2024-04-15",
+    "lane_count": 6,
+    "total_co2e": 150306.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-04-22",
+    "lane_count": 8,
+    "total_co2e": 181826.0,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-04-29",
+    "lane_count": 8,
+    "total_co2e": 189462.9,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-05-06",
+    "lane_count": 5,
+    "total_co2e": 37289.2,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-05-13",
+    "lane_count": 2,
+    "total_co2e": 22812.9,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2024-05-20",
+    "lane_count": 3,
+    "total_co2e": 43036.5,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2024-05-27",
+    "lane_count": 4,
+    "total_co2e": 48853.1,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2024-06-03",
+    "lane_count": 5,
+    "total_co2e": 39470.6,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-06-10",
+    "lane_count": 2,
+    "total_co2e": 10015.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2024-06-17",
+    "lane_count": 7,
+    "total_co2e": 94875.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-06-24",
+    "lane_count": 3,
+    "total_co2e": 71638.7,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-07-01",
+    "lane_count": 5,
+    "total_co2e": 80322.4,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-07-08",
+    "lane_count": 7,
+    "total_co2e": 79341.9,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2024-07-15",
+    "lane_count": 4,
+    "total_co2e": 69944.1,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-07-22",
+    "lane_count": 6,
+    "total_co2e": 84061.2,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-07-29",
+    "lane_count": 6,
+    "total_co2e": 138243.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2024-08-05",
+    "lane_count": 5,
+    "total_co2e": 91703.6,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-08-12",
+    "lane_count": 6,
+    "total_co2e": 78973.9,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-08-19",
+    "lane_count": 4,
+    "total_co2e": 70699.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-08-26",
+    "lane_count": 6,
+    "total_co2e": 93867.2,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-09-02",
+    "lane_count": 4,
+    "total_co2e": 55785.7,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-09-09",
+    "lane_count": 3,
+    "total_co2e": 28681.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-09-16",
+    "lane_count": 3,
+    "total_co2e": 29005.1,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-09-23",
+    "lane_count": 1,
+    "total_co2e": 13330.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-09-30",
+    "lane_count": 4,
+    "total_co2e": 45493.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2024-10-07",
+    "lane_count": 4,
+    "total_co2e": 60716.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2024-10-14",
+    "lane_count": 4,
+    "total_co2e": 83127.4,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2024-10-21",
+    "lane_count": 7,
+    "total_co2e": 146623.7,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-10-28",
+    "lane_count": 7,
+    "total_co2e": 102405.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2024-11-04",
+    "lane_count": 7,
+    "total_co2e": 87220.2,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-11-11",
+    "lane_count": 8,
+    "total_co2e": 65659.6,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-11-18",
+    "lane_count": 6,
+    "total_co2e": 122358.1,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-11-25",
+    "lane_count": 6,
+    "total_co2e": 116776.3,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2024-12-02",
+    "lane_count": 4,
+    "total_co2e": 84769.9,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-12-09",
+    "lane_count": 5,
+    "total_co2e": 148580.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2024-12-16",
+    "lane_count": 6,
+    "total_co2e": 240809.6,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2024-12-23",
+    "lane_count": 6,
+    "total_co2e": 101127.0,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2024-12-30",
+    "lane_count": 6,
+    "total_co2e": 116510.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2025-01-06",
+    "lane_count": 4,
+    "total_co2e": 98543.2,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-01-13",
+    "lane_count": 8,
+    "total_co2e": 97695.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-01-20",
+    "lane_count": 4,
+    "total_co2e": 62630.1,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-01-27",
+    "lane_count": 3,
+    "total_co2e": 28795.5,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-02-03",
+    "lane_count": 5,
+    "total_co2e": 51310.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-02-10",
+    "lane_count": 3,
+    "total_co2e": 56649.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-02-17",
+    "lane_count": 3,
+    "total_co2e": 44703.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-02-24",
+    "lane_count": 2,
+    "total_co2e": 14750.8,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-03-03",
+    "lane_count": 1,
+    "total_co2e": 9857.9,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-03-10",
+    "lane_count": 3,
+    "total_co2e": 21967.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-03-17",
+    "lane_count": 5,
+    "total_co2e": 38868.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-03-24",
+    "lane_count": 7,
+    "total_co2e": 138309.7,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-03-31",
+    "lane_count": 10,
+    "total_co2e": 137294.0,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-04-07",
+    "lane_count": 7,
+    "total_co2e": 58103.8,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-04-14",
+    "lane_count": 5,
+    "total_co2e": 80268.9,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-04-21",
+    "lane_count": 4,
+    "total_co2e": 45771.7,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2025-04-28",
+    "lane_count": 4,
+    "total_co2e": 34838.3,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-05-05",
+    "lane_count": 5,
+    "total_co2e": 65447.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2025-05-12",
+    "lane_count": 5,
+    "total_co2e": 114316.7,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-05-19",
+    "lane_count": 6,
+    "total_co2e": 90046.9,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-05-26",
+    "lane_count": 8,
+    "total_co2e": 221391.3,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-06-02",
+    "lane_count": 4,
+    "total_co2e": 100678.9,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-06-09",
+    "lane_count": 4,
+    "total_co2e": 24432.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-06-16",
+    "lane_count": 4,
+    "total_co2e": 23720.4,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-06-23",
+    "lane_count": 3,
+    "total_co2e": 18943.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-06-30",
+    "lane_count": 4,
+    "total_co2e": 26865.3,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-07-07",
+    "lane_count": 2,
+    "total_co2e": 8589.1,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-07-14",
+    "lane_count": 5,
+    "total_co2e": 30057.3,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-07-21",
+    "lane_count": 3,
+    "total_co2e": 30269.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-07-28",
+    "lane_count": 4,
+    "total_co2e": 54653.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-08-04",
+    "lane_count": 6,
+    "total_co2e": 148409.0,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-08-11",
+    "lane_count": 4,
+    "total_co2e": 128485.3,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-08-18",
+    "lane_count": 8,
+    "total_co2e": 135478.4,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-08-25",
+    "lane_count": 6,
+    "total_co2e": 33071.5,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-09-01",
+    "lane_count": 5,
+    "total_co2e": 51280.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-09-08",
+    "lane_count": 6,
+    "total_co2e": 46107.3,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-09-15",
+    "lane_count": 7,
+    "total_co2e": 60200.4,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2025-09-22",
+    "lane_count": 8,
+    "total_co2e": 102054.2,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-09-29",
+    "lane_count": 4,
+    "total_co2e": 76933.4,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-10-06",
+    "lane_count": 1,
+    "total_co2e": 35040.4,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-10-13",
+    "lane_count": 3,
+    "total_co2e": 40735.8,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2025-10-20",
+    "lane_count": 4,
+    "total_co2e": 50910.8,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-10-27",
+    "lane_count": 2,
+    "total_co2e": 18465.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2025-11-03",
+    "lane_count": 3,
+    "total_co2e": 18446.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2025-11-10",
+    "lane_count": 5,
+    "total_co2e": 43915.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-11-17",
+    "lane_count": 6,
+    "total_co2e": 51489.8,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-11-24",
+    "lane_count": 7,
+    "total_co2e": 118844.5,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2025-12-01",
+    "lane_count": 4,
+    "total_co2e": 36955.1,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2025-12-08",
+    "lane_count": 4,
+    "total_co2e": 41777.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-12-15",
+    "lane_count": 7,
+    "total_co2e": 207544.1,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2025-12-22",
+    "lane_count": 6,
+    "total_co2e": 97685.8,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2025-12-29",
+    "lane_count": 3,
+    "total_co2e": 3748.6,
+    "vehicle_types": [
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-01-05",
+    "lane_count": 2,
+    "total_co2e": 34857.2,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-01-12",
+    "lane_count": 7,
+    "total_co2e": 136974.5,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-01-19",
+    "lane_count": 8,
+    "total_co2e": 140106.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-01-26",
+    "lane_count": 6,
+    "total_co2e": 147813.3,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-02-02",
+    "lane_count": 9,
+    "total_co2e": 181244.2,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_electric",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-02-09",
+    "lane_count": 5,
+    "total_co2e": 65185.1,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-02-16",
+    "lane_count": 6,
+    "total_co2e": 71727.6,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-02-23",
+    "lane_count": 6,
+    "total_co2e": 61331.2,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-03-02",
+    "lane_count": 6,
+    "total_co2e": 81209.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-03-09",
+    "lane_count": 6,
+    "total_co2e": 82488.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-03-16",
+    "lane_count": 7,
+    "total_co2e": 89615.4,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-03-23",
+    "lane_count": 2,
+    "total_co2e": 16112.2,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-03-30",
+    "lane_count": 3,
+    "total_co2e": 16775.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-04-06",
+    "lane_count": 8,
+    "total_co2e": 94463.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-04-13",
+    "lane_count": 8,
+    "total_co2e": 74943.8,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-04-20",
+    "lane_count": 6,
+    "total_co2e": 77891.2,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "lane_count": 5,
+    "total_co2e": 50549.5,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-05-04",
+    "lane_count": 4,
+    "total_co2e": 37361.7,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-05-11",
+    "lane_count": 4,
+    "total_co2e": 52768.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-05-18",
+    "lane_count": 1,
+    "total_co2e": 3363.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-05-25",
+    "lane_count": 2,
+    "total_co2e": 40003.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-06-01",
+    "lane_count": 2,
+    "total_co2e": 28538.0,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-06-08",
+    "lane_count": 3,
+    "total_co2e": 73801.1,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-06-15",
+    "lane_count": 2,
+    "total_co2e": 15727.0,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-06-22",
+    "lane_count": 5,
+    "total_co2e": 51774.0,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-06-29",
+    "lane_count": 6,
+    "total_co2e": 65779.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-07-06",
+    "lane_count": 7,
+    "total_co2e": 104271.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-07-13",
+    "lane_count": 5,
+    "total_co2e": 60600.0,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-07-20",
+    "lane_count": 5,
+    "total_co2e": 45387.9,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-07-27",
+    "lane_count": 4,
+    "total_co2e": 27196.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-08-03",
+    "lane_count": 6,
+    "total_co2e": 59109.6,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-08-10",
+    "lane_count": 8,
+    "total_co2e": 76164.4,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-08-17",
+    "lane_count": 6,
+    "total_co2e": 31171.4,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-08-24",
+    "lane_count": 10,
+    "total_co2e": 61778.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-08-31",
+    "lane_count": 6,
+    "total_co2e": 81530.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-09-07",
+    "lane_count": 5,
+    "total_co2e": 46846.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-09-14",
+    "lane_count": 5,
+    "total_co2e": 58859.0,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-09-21",
+    "lane_count": 4,
+    "total_co2e": 36323.0,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-09-28",
+    "lane_count": 6,
+    "total_co2e": 74331.3,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-10-05",
+    "lane_count": 7,
+    "total_co2e": 56871.7,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-10-12",
+    "lane_count": 6,
+    "total_co2e": 53133.8,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-10-19",
+    "lane_count": 5,
+    "total_co2e": 55322.8,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-10-26",
+    "lane_count": 5,
+    "total_co2e": 81348.6,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-11-02",
+    "lane_count": 6,
+    "total_co2e": 75576.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-11-09",
+    "lane_count": 2,
+    "total_co2e": 19003.9,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2026-11-16",
+    "lane_count": 1,
+    "total_co2e": 3257.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-11-23",
+    "lane_count": 5,
+    "total_co2e": 35032.9,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2026-11-30",
+    "lane_count": 5,
+    "total_co2e": 39779.3,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2026-12-07",
+    "lane_count": 6,
+    "total_co2e": 65866.8,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-12-14",
+    "lane_count": 10,
+    "total_co2e": 135012.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2026-12-21",
+    "lane_count": 9,
+    "total_co2e": 136541.7,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2026-12-28",
+    "lane_count": 8,
+    "total_co2e": 172972.8,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-01-04",
+    "lane_count": 11,
+    "total_co2e": 188914.0,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-01-11",
+    "lane_count": 10,
+    "total_co2e": 192105.6,
+    "vehicle_types": [
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-01-18",
+    "lane_count": 7,
+    "total_co2e": 133274.9,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-01-25",
+    "lane_count": 6,
+    "total_co2e": 66258.1,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-02-01",
+    "lane_count": 6,
+    "total_co2e": 81396.7,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2027-02-08",
+    "lane_count": 5,
+    "total_co2e": 64894.8,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-02-15",
+    "lane_count": 5,
+    "total_co2e": 62439.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-02-22",
+    "lane_count": 5,
+    "total_co2e": 79514.8,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2027-03-01",
+    "lane_count": 4,
+    "total_co2e": 67459.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2027-03-08",
+    "lane_count": 6,
+    "total_co2e": 80379.3,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-03-15",
+    "lane_count": 6,
+    "total_co2e": 37927.2,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2027-03-22",
+    "lane_count": 4,
+    "total_co2e": 21643.7,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-03-29",
+    "lane_count": 3,
+    "total_co2e": 16791.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-04-05",
+    "lane_count": 4,
+    "total_co2e": 44308.5,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-04-12",
+    "lane_count": 2,
+    "total_co2e": 15279.7,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-04-19",
+    "lane_count": 4,
+    "total_co2e": 82273.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-04-26",
+    "lane_count": 5,
+    "total_co2e": 45287.6,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2027-05-03",
+    "lane_count": 5,
+    "total_co2e": 54875.5,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-05-10",
+    "lane_count": 4,
+    "total_co2e": 57006.8,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-05-17",
+    "lane_count": 5,
+    "total_co2e": 86006.3,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2027-05-24",
+    "lane_count": 3,
+    "total_co2e": 54212.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_cng",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2027-05-31",
+    "lane_count": 4,
+    "total_co2e": 87262.7,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-06-07",
+    "lane_count": 5,
+    "total_co2e": 57402.3,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2027-06-14",
+    "lane_count": 7,
+    "total_co2e": 78050.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_electric",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-06-21",
+    "lane_count": 8,
+    "total_co2e": 134185.4,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-06-28",
+    "lane_count": 5,
+    "total_co2e": 56770.6,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-07-05",
+    "lane_count": 5,
+    "total_co2e": 67052.4,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2027-07-12",
+    "lane_count": 4,
+    "total_co2e": 63057.5,
+    "vehicle_types": [
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-07-19",
+    "lane_count": 5,
+    "total_co2e": 97890.4,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-07-26",
+    "lane_count": 6,
+    "total_co2e": 145651.6,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-08-02",
+    "lane_count": 4,
+    "total_co2e": 56394.0,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-08-09",
+    "lane_count": 5,
+    "total_co2e": 69783.7,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_cng",
+      "road_rigid_diesel",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2027-08-16",
+    "lane_count": 4,
+    "total_co2e": 90034.5,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-08-23",
+    "lane_count": 3,
+    "total_co2e": 53908.6,
+    "vehicle_types": [
+      "road_cng",
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2027-08-30",
+    "lane_count": 7,
+    "total_co2e": 131549.9,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-09-06",
+    "lane_count": 6,
+    "total_co2e": 89187.0,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-09-13",
+    "lane_count": 8,
+    "total_co2e": 206708.7,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2027-09-20",
+    "lane_count": 7,
+    "total_co2e": 182188.7,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_articulated_diesel",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-09-27",
+    "lane_count": 3,
+    "total_co2e": 19449.3,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-10-04",
+    "lane_count": 6,
+    "total_co2e": 57458.8,
+    "vehicle_types": [
+      "road_articulated_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-10-11",
+    "lane_count": 8,
+    "total_co2e": 109408.2,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-10-18",
+    "lane_count": 7,
+    "total_co2e": 177594.8,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_articulated_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  },
+  {
+    "date": "2027-10-25",
+    "lane_count": 6,
+    "total_co2e": 135815.0,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_cng",
+      "road_rigid_electric"
+    ]
+  },
+  {
+    "date": "2027-11-01",
+    "lane_count": 7,
+    "total_co2e": 158088.9,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_lcv_diesel",
+      "road_rigid_electric",
+      "road_articulated_diesel"
+    ]
+  },
+  {
+    "date": "2027-11-08",
+    "lane_count": 5,
+    "total_co2e": 89615.4,
+    "vehicle_types": [
+      "road_lcv_diesel",
+      "road_rigid_diesel",
+      "road_rigid_electric",
+      "road_cng"
+    ]
+  },
+  {
+    "date": "2027-11-15",
+    "lane_count": 2,
+    "total_co2e": 25908.0,
+    "vehicle_types": [
+      "road_rigid_electric",
+      "road_cng",
+      "road_articulated_diesel",
+      "road_rigid_diesel"
+    ]
+  },
+  {
+    "date": "2027-11-22",
+    "lane_count": 1,
+    "total_co2e": 5555.7,
+    "vehicle_types": [
+      "road_rigid_diesel",
+      "road_cng",
+      "road_lcv_diesel"
+    ]
+  }
+]

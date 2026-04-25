@@ -1,0 +1,31 @@
+# ── Version control ──────────────────────────────────────────────
+.git
+.gitignore
+
+# ── Node / build artefacts ───────────────────────────────────────
+node_modules/
+dist/
+.cache/
+
+# ── Environment files (injected via docker-compose or build-args) ─
+.env.local
+.env.*.local
+*.env
+
+# ── IDE & OS noise ───────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# ── Documentation ────────────────────────────────────────────────
+*.md
+README*
+
+# ── Docker meta ──────────────────────────────────────────────────
+.dockerignore
+Dockerfile
+
+# ── Test / Lint artefacts ─────────────────────────────────────────
+coverage/
+*.log

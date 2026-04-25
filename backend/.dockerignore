@@ -1,0 +1,50 @@
+# ── Version control ──────────────────────────────────────────────
+.git
+.gitignore
+.gitattributes
+
+# ── Python cache / build artefacts ───────────────────────────────
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.whl
+
+# ── Virtual environments ──────────────────────────────────────────
+.venv/
+venv/
+env/
+.env           # real secrets — never bake into the image
+*.env
+
+# ── Large ML artefacts (injected via docker-compose volume) ──────
+models/
+data/
+
+# ── Test / dev files ─────────────────────────────────────────────
+test_*.py
+*_test.py
+tests/
+regen_anomalies.py
+check_hybrid_features.py
+
+# ── IDE & OS noise ───────────────────────────────────────────────
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
+
+# ── Documentation ────────────────────────────────────────────────
+*.md
+docs/
+
+# ── CI / Docker meta ─────────────────────────────────────────────
+.dockerignore
+Dockerfile
+docker-compose*.yml

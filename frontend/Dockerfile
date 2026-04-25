@@ -1,0 +1,45 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Stage 1 — Node builder
+#   Installs ALL deps (including devDependencies) needed by tsc + vite build,
+#   then compiles the React/TS app into a static dist/ bundle.
+# ─────────────────────────────────────────────────────────────────────────────
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Layer cache: copy lock files first → npm ci is skipped on rebuilds
+# unless package-lock.json actually changes.
+COPY package.json package-lock.json ./
+RUN npm ci --prefer-offline
+
+# Copy source and build
+COPY . .
+
+# VITE_API_BASE_URL is injected at build time by docker-compose build args.
+# The default points to the compose service name so it works out-of-the-box.
+ARG VITE_API_BASE_URL=http://backend:8000
+ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
+
+RUN npm run build:docker
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Stage 2 — Production Nginx (< 25 MB final image, zero Node runtime)
+#   Serves the compiled static bundle and reverse-proxies /api + /health
+#   to the FastAPI backend — identical routing to the vite dev-server proxy.
+# ─────────────────────────────────────────────────────────────────────────────
+FROM nginx:1.27-alpine AS runtime
+
+# Remove the default nginx static assets
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy compiled bundle from builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copy custom nginx config (handles SPA routing + API proxy)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+# Use tini-style exec form so SIGTERM is passed directly to nginx
+CMD ["nginx", "-g", "daemon off;"]

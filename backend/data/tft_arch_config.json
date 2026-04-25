@@ -1,0 +1,69 @@
+{
+  "TARGET": "co2e_kg",
+  "SEED": 42,
+  "GROUP_IDS": [
+    "lane_id"
+  ],
+  "MAX_ENCODER_LENGTH": 52,
+  "MAX_PREDICTION_LENGTH": 4,
+  "MIN_PREDICTION_LENGTH": 4,
+  "BATCH_SIZE": 64,
+  "QUANTILES": [
+    0.02,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.98
+  ],
+  "MEDIAN_IDX": 3,
+  "TRAIN_FRAC": 0.7,
+  "VAL_FRAC": 0.15,
+  "MIN_ENTITY_LENGTH": 66,
+  "STATIC_CATEGORICALS": [
+    "lane_id",
+    "origin",
+    "destination"
+  ],
+  "STATIC_REALS": [
+    "distance_km"
+  ],
+  "TIME_VARYING_KNOWN_CATEGORICALS": [
+    "vehicle_type"
+  ],
+  "TIME_VARYING_KNOWN_REALS": [
+    "sin_time",
+    "cos_time",
+    "sin_week",
+    "cos_week",
+    "fuel_price_index",
+    "is_anomaly_week",
+    "is_shipment_spike"
+  ],
+  "TIME_VARYING_UNKNOWN_REALS": [
+    "lag_1",
+    "lag_2",
+    "lag_4",
+    "lag_7",
+    "lag_14",
+    "ewm_alpha03",
+    "ewm_alpha01",
+    "rolling_std_4",
+    "traffic_index",
+    "weather_index",
+    "load_factor",
+    "fuel_efficiency",
+    "driver_efficiency_index",
+    "route_risk_index",
+    "log_weight",
+    "load_distance",
+    "co2_physics",
+    "load_efficiency",
+    "weight_tons"
+  ],
+  "ROBUST_SCALE_FEATURES": [
+    "traffic_index",
+    "weather_index"
+  ]
+}

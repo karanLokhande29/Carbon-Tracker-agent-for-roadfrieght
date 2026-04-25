@@ -1,0 +1,702 @@
+{
+  "lane_000": {
+    "mape": 31.8,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_001": {
+    "mape": 30.6,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_002": {
+    "mape": 29.2,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_003": {
+    "mape": 29.0,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_004": {
+    "mape": 27.8,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_005": {
+    "mape": 35.6,
+    "bias_kg": 0,
+    "reliability": "low"
+  },
+  "lane_006": {
+    "mape": 27.7,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_007": {
+    "mape": 27.6,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_008": {
+    "mape": 27.6,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_009": {
+    "mape": 27.4,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_010": {
+    "mape": 27.3,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_011": {
+    "mape": 27.0,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_012": {
+    "mape": 26.8,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_013": {
+    "mape": 25.8,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_014": {
+    "mape": 25.5,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_015": {
+    "mape": 25.3,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_016": {
+    "mape": 25.2,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_017": {
+    "mape": 36.8,
+    "bias_kg": 0,
+    "reliability": "low"
+  },
+  "lane_018": {
+    "mape": 25.1,
+    "bias_kg": 0.0,
+    "reliability": "low"
+  },
+  "lane_019": {
+    "mape": 24.9,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_020": {
+    "mape": 44.7,
+    "bias_kg": 445.2,
+    "reliability": "low"
+  },
+  "lane_021": {
+    "mape": 18.5,
+    "bias_kg": 0,
+    "reliability": "good"
+  },
+  "lane_022": {
+    "mape": 18.5,
+    "bias_kg": 0,
+    "reliability": "good"
+  },
+  "lane_023": {
+    "mape": 24.4,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_024": {
+    "mape": 24.4,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_025": {
+    "mape": 24.3,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_026": {
+    "mape": 24.2,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_027": {
+    "mape": 24.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_028": {
+    "mape": 24.0,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_029": {
+    "mape": 23.6,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_030": {
+    "mape": 23.5,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_031": {
+    "mape": 23.3,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_032": {
+    "mape": 23.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_033": {
+    "mape": 23.0,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_034": {
+    "mape": 22.9,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_035": {
+    "mape": 22.8,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_036": {
+    "mape": 22.5,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_037": {
+    "mape": 22.4,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_038": {
+    "mape": 22.3,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_039": {
+    "mape": 22.3,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_040": {
+    "mape": 22.3,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_041": {
+    "mape": 22.2,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_042": {
+    "mape": 22.2,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_043": {
+    "mape": 17.6,
+    "bias_kg": 0,
+    "reliability": "good"
+  },
+  "lane_044": {
+    "mape": 22.2,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_045": {
+    "mape": 22.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_046": {
+    "mape": 22.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_047": {
+    "mape": 22.0,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_048": {
+    "mape": 21.9,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_049": {
+    "mape": 21.9,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_050": {
+    "mape": 21.8,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_051": {
+    "mape": 21.6,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_052": {
+    "mape": 21.6,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_053": {
+    "mape": 21.5,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_054": {
+    "mape": 21.5,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_055": {
+    "mape": 21.2,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_056": {
+    "mape": 21.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_057": {
+    "mape": 21.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_058": {
+    "mape": 21.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_059": {
+    "mape": 21.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_060": {
+    "mape": 21.0,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_061": {
+    "mape": 18.0,
+    "bias_kg": 0,
+    "reliability": "good"
+  },
+  "lane_062": {
+    "mape": 21.0,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_063": {
+    "mape": 20.7,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_064": {
+    "mape": 20.6,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_065": {
+    "mape": 18.3,
+    "bias_kg": 0,
+    "reliability": "good"
+  },
+  "lane_066": {
+    "mape": 20.5,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_067": {
+    "mape": 20.5,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_068": {
+    "mape": 20.4,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_069": {
+    "mape": 20.4,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_070": {
+    "mape": 20.2,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_071": {
+    "mape": 20.1,
+    "bias_kg": 0.0,
+    "reliability": "medium"
+  },
+  "lane_072": {
+    "mape": 20.0,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_073": {
+    "mape": 19.9,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_074": {
+    "mape": 19.8,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_075": {
+    "mape": 19.7,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_076": {
+    "mape": 19.7,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_077": {
+    "mape": 19.6,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_078": {
+    "mape": 19.6,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_079": {
+    "mape": 19.6,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_080": {
+    "mape": 19.4,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_081": {
+    "mape": 19.4,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_082": {
+    "mape": 19.3,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_083": {
+    "mape": 19.3,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_084": {
+    "mape": 19.3,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_085": {
+    "mape": 19.2,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_086": {
+    "mape": 19.2,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_087": {
+    "mape": 19.0,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_088": {
+    "mape": 18.9,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_089": {
+    "mape": 18.8,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_090": {
+    "mape": 18.6,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_091": {
+    "mape": 18.6,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_092": {
+    "mape": 18.6,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_093": {
+    "mape": 18.6,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_094": {
+    "mape": 18.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_095": {
+    "mape": 18.4,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_096": {
+    "mape": 18.4,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_097": {
+    "mape": 20.5,
+    "bias_kg": -434.0,
+    "reliability": "medium"
+  },
+  "lane_098": {
+    "mape": 18.3,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_099": {
+    "mape": 18.3,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_100": {
+    "mape": 18.2,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_101": {
+    "mape": 18.2,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_102": {
+    "mape": 18.0,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_103": {
+    "mape": 18.0,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_104": {
+    "mape": 17.8,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_105": {
+    "mape": 17.7,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_106": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_107": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_108": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_109": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_110": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_111": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_112": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_113": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_114": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_115": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_116": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_117": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_118": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_119": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_120": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_121": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_122": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_123": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_124": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_125": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_126": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_127": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_128": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_129": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_130": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_131": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_132": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_133": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_134": {
+    "mape": 37.7,
+    "bias_kg": 0,
+    "reliability": "low"
+  },
+  "lane_135": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_136": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_137": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_138": {
+    "mape": 17.5,
+    "bias_kg": 0.0,
+    "reliability": "good"
+  },
+  "lane_139": {
+    "mape": 36.5,
+    "bias_kg": 0,
+    "reliability": "low"
+  }
+}

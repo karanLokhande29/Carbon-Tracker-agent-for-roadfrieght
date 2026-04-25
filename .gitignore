@@ -1,0 +1,25 @@
+# ── Python ────────────────────────────────────────────────────────
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ── Node ──────────────────────────────────────────────────────────
+node_modules/
+dist/
+
+# ── Secrets — NEVER commit real .env files ────────────────────────
+backend/.env
+frontend/.env.local
+
+# ── OS noise ──────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Large data files (use Git LFS or object storage instead) ─────
+backend/data/india_freight_emissions.csv
+backend/models/*.cbm
+backend/models/*.ckpt
+backend/models/*.npy
+backend/models/*.pkl
