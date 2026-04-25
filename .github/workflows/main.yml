@@ -20,36 +20,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── 2. Set up Docker Buildx (required for build-push-action) ───────────
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      # ── 3. Build backend image ──────────────────────────────────────────────
+      # ── 2. Build backend image ──────────────────────────────────────────────
       - name: Build backend image
-        uses: docker/build-push-action@v5
-        with:
-          context: ./backend
-          file: ./backend/Dockerfile
-          push: false
-          load: true
-          tags: carbon-tracker-backend:ci
-          cache-from: type=gha,scope=backend
-          cache-to:   type=gha,scope=backend,mode=max
+        run: |
+          docker build \
+            -t carbon-tracker-backend:ci \
+            -f backend/Dockerfile \
+            ./backend
 
-      # ── 4. Build frontend image ─────────────────────────────────────────────
+      # ── 3. Build frontend image ─────────────────────────────────────────────
       - name: Build frontend image
-        uses: docker/build-push-action@v5
-        with:
-          context: ./frontend
-          file: ./frontend/Dockerfile
-          push: false
-          load: true
-          tags: carbon-tracker-frontend:ci
-          cache-from: type=gha,scope=frontend
-          cache-to:   type=gha,scope=frontend,mode=max
-          build-args: VITE_API_BASE_URL=
+        run: |
+          docker build \
+            -t carbon-tracker-frontend:ci \
+            -f frontend/Dockerfile \
+            --build-arg VITE_API_BASE_URL="" \
+            ./frontend
 
-      # ── 5. Verify required artifact files are present ───────────────────────
+      # ── 4. Verify required artifact files are present ───────────────────────
       - name: Verify required artifact files are present
         run: |
           set -e
@@ -69,31 +57,29 @@ jobs:
           check backend/data/model_config.json
           echo "✅ All required files present"
 
-      # ── 6. Start containers ─────────────────────────────────────────────────
+      # ── 5. Start containers ─────────────────────────────────────────────────
       - name: Start containers
         run: |
           set -e
 
-          # --- Write .env for backend (no leading spaces — heredoc must be unindented) ---
-          cat > backend/.env << 'EOF'
-          HOST=0.0.0.0
-          PORT=8000
-          REDIS_URL=redis://redis:6379
-          MODEL_DIR=models
-          DATA_DIR=data
-          CATBOOST_MODEL_PATH=models/catboost_best.cbm
-          HYBRID_MODEL_PATH=models/hybrid_graphsage_catboost_best.cbm
-          TFT_CKPT_PATH=models/tft_best-82-0.1107.ckpt
-          EMBEDDINGS_PATH=models/city_embeddings_1.npy
-          CACHE_TTL_PREDICT=300
-          CACHE_TTL_STATIC=3600
-          LOW_CONFIDENCE_THRESHOLD_KG=1000.0
-          VIRTUAL_ENSEMBLE_COUNT=10
-          EOF
+          # Write .env for backend (heredoc must start at column 0)
+cat > backend/.env << 'EOF'
+HOST=0.0.0.0
+PORT=8000
+REDIS_URL=redis://redis:6379
+MODEL_DIR=models
+DATA_DIR=data
+CATBOOST_MODEL_PATH=models/catboost_best.cbm
+HYBRID_MODEL_PATH=models/hybrid_graphsage_catboost_best.cbm
+TFT_CKPT_PATH=models/tft_best-82-0.1107.ckpt
+EMBEDDINGS_PATH=models/city_embeddings_1.npy
+CACHE_TTL_PREDICT=300
+CACHE_TTL_STATIC=3600
+LOW_CONFIDENCE_THRESHOLD_KG=1000.0
+VIRTUAL_ENSEMBLE_COUNT=10
+EOF
 
-          # --- Create stub model files so config.py validator does not crash ---
-          # The validator only checks that the file EXISTS (Path.exists()),
-          # not that it contains a valid model. Services catch load errors gracefully.
+          # Create stub model files so config.py path validator passes
           mkdir -p backend/models
           touch backend/models/catboost_best.cbm
           touch backend/models/hybrid_graphsage_catboost_best.cbm
@@ -101,20 +87,16 @@ jobs:
           touch backend/models/city_embeddings_1.npy
           echo "✅ Stub model files created"
 
-          # --- Override compose to use the :ci tagged images we just built ---
+          # Use pre-built :ci images (skip rebuild inside compose)
           export BACKEND_IMAGE=carbon-tracker-backend:ci
           export FRONTEND_IMAGE=carbon-tracker-frontend:ci
 
-          # Start redis first, then backend (frontend not needed for API tests)
           docker compose up -d redis
-
-          # Give redis a moment then start backend
-          sleep 2
+          sleep 3
           docker compose up -d backend
-
           echo "✅ Containers started"
 
-      # ── 7. Wait for backend /health ─────────────────────────────────────────
+      # ── 6. Wait for backend /health ─────────────────────────────────────────
       - name: Wait for backend /health
         run: |
           echo "Waiting for backend to become healthy…"
@@ -130,7 +112,7 @@ jobs:
           echo "❌ Backend did not become healthy within 150s"
           exit 1
 
-      # ── 8. Smoke-test backend endpoints ─────────────────────────────────────
+      # ── 7. Smoke-test backend endpoints ─────────────────────────────────────
       - name: Smoke-test backend endpoints
         run: |
           set -e
@@ -147,16 +129,16 @@ jobs:
             fi
           }
 
-          check "$BASE/health"                               "200" "GET /health"
-          check "$BASE/openapi.json"                         "200" "GET /openapi.json"
-          check "$BASE/api/lanes"                            "200" "GET /api/lanes"
-          check "$BASE/api/analytics/anomalies"             "200" "GET /api/analytics/anomalies"
-          check "$BASE/api/analytics/vehicle-breakdown"     "200" "GET /api/analytics/vehicle-breakdown"
-          check "$BASE/api/analytics/model-metrics"         "200" "GET /api/analytics/model-metrics"
+          check "$BASE/health"                           "200" "GET /health"
+          check "$BASE/openapi.json"                     "200" "GET /openapi.json"
+          check "$BASE/api/lanes"                        "200" "GET /api/lanes"
+          check "$BASE/api/analytics/anomalies"          "200" "GET /api/analytics/anomalies"
+          check "$BASE/api/analytics/vehicle-breakdown"  "200" "GET /api/analytics/vehicle-breakdown"
+          check "$BASE/api/analytics/model-metrics"      "200" "GET /api/analytics/model-metrics"
 
           echo "✅ All smoke tests passed"
 
-      # ── 9. Dump container logs (on failure) ─────────────────────────────────
+      # ── 8. Dump container logs (on failure) ─────────────────────────────────
       - name: Dump container logs (on failure)
         if: failure()
         run: |
@@ -165,7 +147,7 @@ jobs:
           echo "════ redis logs ════"
           docker compose logs --no-color redis   || true
 
-      # ── 10. Shutdown containers ──────────────────────────────────────────────
+      # ── 9. Shutdown containers ───────────────────────────────────────────────
       - name: Shutdown containers
         if: always()
         run: docker compose down -v --remove-orphans
