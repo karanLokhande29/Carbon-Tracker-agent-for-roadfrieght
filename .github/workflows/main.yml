@@ -41,7 +41,7 @@ jobs:
       - name: Verify required artifact files are present
         run: |
           set -e
-          check() { test -f "$1" && echo "✅ $1" || { echo "❌ MISSING: $1"; exit 1; }; }
+          check() { test -f "$1" && echo "OK: $1" || { echo "MISSING: $1"; exit 1; }; }
           check backend/Dockerfile
           check backend/requirements.txt
           check backend/.env.example
@@ -55,29 +55,29 @@ jobs:
           check backend/data/anomaly_data.json
           check backend/data/scaler_params.json
           check backend/data/model_config.json
-          echo "✅ All required files present"
+          echo "All required files present"
 
       # ── 5. Start containers ─────────────────────────────────────────────────
       - name: Start containers
         run: |
           set -e
 
-          # Write .env for backend (heredoc must start at column 0)
-cat > backend/.env << 'EOF'
-HOST=0.0.0.0
-PORT=8000
-REDIS_URL=redis://redis:6379
-MODEL_DIR=models
-DATA_DIR=data
-CATBOOST_MODEL_PATH=models/catboost_best.cbm
-HYBRID_MODEL_PATH=models/hybrid_graphsage_catboost_best.cbm
-TFT_CKPT_PATH=models/tft_best-82-0.1107.ckpt
-EMBEDDINGS_PATH=models/city_embeddings_1.npy
-CACHE_TTL_PREDICT=300
-CACHE_TTL_STATIC=3600
-LOW_CONFIDENCE_THRESHOLD_KG=1000.0
-VIRTUAL_ENSEMBLE_COUNT=10
-EOF
+          # Write .env using printf (avoids heredoc indentation issues in YAML)
+          printf '%s\n' \
+            'HOST=0.0.0.0' \
+            'PORT=8000' \
+            'REDIS_URL=redis://redis:6379' \
+            'MODEL_DIR=models' \
+            'DATA_DIR=data' \
+            'CATBOOST_MODEL_PATH=models/catboost_best.cbm' \
+            'HYBRID_MODEL_PATH=models/hybrid_graphsage_catboost_best.cbm' \
+            'TFT_CKPT_PATH=models/tft_best-82-0.1107.ckpt' \
+            'EMBEDDINGS_PATH=models/city_embeddings_1.npy' \
+            'CACHE_TTL_PREDICT=300' \
+            'CACHE_TTL_STATIC=3600' \
+            'LOW_CONFIDENCE_THRESHOLD_KG=1000.0' \
+            'VIRTUAL_ENSEMBLE_COUNT=10' \
+            > backend/.env
 
           # Create stub model files so config.py path validator passes
           mkdir -p backend/models
@@ -85,31 +85,31 @@ EOF
           touch backend/models/hybrid_graphsage_catboost_best.cbm
           touch backend/models/tft_best-82-0.1107.ckpt
           touch backend/models/city_embeddings_1.npy
-          echo "✅ Stub model files created"
+          echo "Stub model files created"
 
-          # Use pre-built :ci images (skip rebuild inside compose)
+          # Use pre-built :ci images — skip rebuild inside compose
           export BACKEND_IMAGE=carbon-tracker-backend:ci
           export FRONTEND_IMAGE=carbon-tracker-frontend:ci
 
           docker compose up -d redis
           sleep 3
           docker compose up -d backend
-          echo "✅ Containers started"
+          echo "Containers started"
 
       # ── 6. Wait for backend /health ─────────────────────────────────────────
       - name: Wait for backend /health
         run: |
-          echo "Waiting for backend to become healthy…"
+          echo "Waiting for backend to become healthy..."
           for i in $(seq 1 30); do
             STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/health 2>/dev/null || echo "000")
             if [ "$STATUS" = "200" ]; then
-              echo "✅ Backend healthy after ${i} attempt(s)"
+              echo "Backend healthy after ${i} attempt(s)"
               exit 0
             fi
-            echo "  attempt $i/30 — HTTP $STATUS — retrying in 5s…"
+            echo "  attempt $i/30 - HTTP $STATUS - retrying in 5s..."
             sleep 5
           done
-          echo "❌ Backend did not become healthy within 150s"
+          echo "ERROR: Backend did not become healthy within 150s"
           exit 1
 
       # ── 7. Smoke-test backend endpoints ─────────────────────────────────────
@@ -122,9 +122,9 @@ EOF
             local url="$1" expected="$2" label="$3"
             code=$(curl -s -o /dev/null -w "%{http_code}" "$url" 2>/dev/null || echo "000")
             if [ "$code" = "$expected" ]; then
-              echo "✅ $label — HTTP $code"
+              echo "PASS: $label - HTTP $code"
             else
-              echo "❌ $label — expected HTTP $expected, got HTTP $code"
+              echo "FAIL: $label - expected HTTP $expected, got HTTP $code"
               exit 1
             fi
           }
@@ -136,15 +136,15 @@ EOF
           check "$BASE/api/analytics/vehicle-breakdown"  "200" "GET /api/analytics/vehicle-breakdown"
           check "$BASE/api/analytics/model-metrics"      "200" "GET /api/analytics/model-metrics"
 
-          echo "✅ All smoke tests passed"
+          echo "All smoke tests passed"
 
       # ── 8. Dump container logs (on failure) ─────────────────────────────────
       - name: Dump container logs (on failure)
         if: failure()
         run: |
-          echo "════ backend logs ════"
+          echo "=== backend logs ==="
           docker compose logs --no-color backend || true
-          echo "════ redis logs ════"
+          echo "=== redis logs ==="
           docker compose logs --no-color redis   || true
 
       # ── 9. Shutdown containers ───────────────────────────────────────────────
