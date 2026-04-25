@@ -41,12 +41,16 @@ WORKDIR /app
 COPY --from=deps /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=deps /usr/local/bin /usr/local/bin
 
-# Copy application source (models/data are mounted via Docker volumes)
+# Copy application source
 COPY --chown=appuser:appgroup app/      ./app/
 COPY --chown=appuser:appgroup run.py    ./run.py
 
-# Persistent artefact directories; content is injected via docker-compose volumes
-RUN mkdir -p models data && chown -R appuser:appgroup models data
+# Copy data files (JSON metadata needed at runtime).
+# In Docker Compose these are overridden by bind-mount volumes.
+COPY --chown=appuser:appgroup data/     ./data/
+
+# Models directory (content injected via docker-compose volumes or CI stubs)
+RUN mkdir -p models && chown -R appuser:appgroup models
 
 USER appuser
 

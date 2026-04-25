@@ -39,7 +39,12 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 # Copy custom nginx config (handles SPA routing + API proxy)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+# Copy entrypoint that substitutes BACKEND_HOST at runtime
+COPY docker-entrypoint-custom.sh /docker-entrypoint-custom.sh
+RUN chmod +x /docker-entrypoint-custom.sh
+
 EXPOSE 80
 
-# Use tini-style exec form so SIGTERM is passed directly to nginx
+# Entrypoint swaps backend hostname, then starts nginx
+ENTRYPOINT ["/docker-entrypoint-custom.sh"]
 CMD ["nginx", "-g", "daemon off;"]

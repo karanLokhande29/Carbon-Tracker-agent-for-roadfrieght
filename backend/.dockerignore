@@ -23,7 +23,9 @@ env/
 
 # ── Large ML artefacts (injected via docker-compose volume) ──────
 models/
-data/
+# data/ is NOT excluded — baked into image for cloud deployments (ACA)
+# Only exclude the giant CSV (104 MB; gitignored anyway).
+data/india_freight_emissions.csv
 
 # ── Test / dev files ─────────────────────────────────────────────
 test_*.py
