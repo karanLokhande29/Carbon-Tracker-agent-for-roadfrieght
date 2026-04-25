@@ -44,6 +44,7 @@ def _attempt_tft_load(checkpoint_path: str, train_ds):
     try:
         import torch
         _orig_load = torch.load
+        _orig_is_available = torch.cuda.is_available
 
         def _safe_load(*args, **kwargs):
             kwargs['weights_only'] = False
@@ -51,18 +52,21 @@ def _attempt_tft_load(checkpoint_path: str, train_ds):
             return _orig_load(*args, **kwargs)
 
         torch.load = _safe_load
+        torch.cuda.is_available = lambda: False
+        
         # Force CPU — never attempt GPU on Windows dev
-        os.environ['CUDA_VISIBLE_DEVICES'] = ''
+        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
         warnings.filterwarnings('ignore')
 
         try:
             from pytorch_forecasting import TemporalFusionTransformer
             model = TemporalFusionTransformer.load_from_checkpoint(
                 checkpoint_path,
-                map_location=torch.device('cpu'),
+                map_location='cpu',
             )
         finally:
             torch.load = _orig_load
+            torch.cuda.is_available = _orig_is_available
 
         model.eval()
         model.freeze()

@@ -45,12 +45,13 @@ COPY --from=deps /usr/local/bin /usr/local/bin
 COPY --chown=appuser:appgroup app/      ./app/
 COPY --chown=appuser:appgroup run.py    ./run.py
 
-# Copy data files (JSON metadata needed at runtime).
+# Copy data files (JSON metadata + CSV needed at runtime).
 # In Docker Compose these are overridden by bind-mount volumes.
 COPY --chown=appuser:appgroup data/     ./data/
 
-# Models directory (content injected via docker-compose volumes or CI stubs)
-RUN mkdir -p models && chown -R appuser:appgroup models
+# Copy ML model files (CatBoost, GraphSAGE embeddings, TFT checkpoint).
+# ~78 MB total. In Docker Compose these are overridden by bind-mount volumes.
+COPY --chown=appuser:appgroup models/   ./models/
 
 USER appuser
 

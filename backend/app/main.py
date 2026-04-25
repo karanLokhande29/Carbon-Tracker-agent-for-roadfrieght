@@ -156,10 +156,11 @@ app.include_router(analytics.router)
 @app.get("/health")
 async def health():
     """Liveness + model readiness check."""
+    _stubs = (_DummyRedis, _DummyTFT, _DummyCatBoost, _DummyGraphSAGE, _DummyRecommendations)
     models = []
     for name in ("catboost", "graphsage", "tft", "recommendations", "redis"):
         loaded = hasattr(app.state, name) and not isinstance(
-            getattr(app.state, name), (_DummyRedis, _DummyTFT)
+            getattr(app.state, name), _stubs
         )
         models.append({"name": name, "loaded": loaded})
     return {"status": "ok", "models": models}
