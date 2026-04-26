@@ -1,13 +1,23 @@
 #!/bin/sh
 # docker-entrypoint-custom.sh
-# Replaces the backend URL in nginx.conf with BACKEND_URL env var.
-# If BACKEND_URL is not set, defaults to "http://backend:8000" (Docker Compose).
+# Replaces BACKEND_URL_PLACEHOLDER in nginx.conf with the actual BACKEND_URL.
+# No DNS hacks required, because Azure Container Apps use static internal LBs.
+
+set -e
 
 BACKEND_URL="${BACKEND_URL:-http://backend:8000}"
 
-echo "Configuring nginx: backend -> ${BACKEND_URL}"
+echo "=== Carbon Tracker Frontend ==="
+echo "Configuring nginx: BACKEND_URL -> ${BACKEND_URL}"
 
-sed -i "s|http://backend:8000|${BACKEND_URL}|g" /etc/nginx/conf.d/default.conf
+# Replace placeholders
+sed -i "s|BACKEND_URL_PLACEHOLDER|${BACKEND_URL}|g" /etc/nginx/conf.d/default.conf
 
-# Run the original nginx entrypoint
+echo "=== Nginx backend upstream set to ==="
+grep "proxy_pass" /etc/nginx/conf.d/default.conf | head -5
+
+echo "=== Testing nginx config syntax ==="
+nginx -t
+
+echo "=== Starting nginx ==="
 exec /docker-entrypoint.sh "$@"

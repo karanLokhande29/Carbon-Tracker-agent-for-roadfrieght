@@ -38,25 +38,37 @@ TFT_AVAILABLE = False
 def _attempt_tft_load(checkpoint_path: str, train_ds):
     """
     Completely isolated TFT checkpoint loader with full error containment.
+    Forces CPU-only mode before any CUDA initialization.
     Returns (model, True) on success, (None, False) on any failure.
     """
     global TFT_AVAILABLE
     try:
+        # ── Force CPU BEFORE importing torch to prevent any CUDA probe ──
+        os.environ['CUDA_VISIBLE_DEVICES'] = ''
+        os.environ['CUDA_DEVICE_ORDER'] = 'PCI_BUS_ID'
+        os.environ['PYTORCH_ENABLE_MPS_FALLBACK'] = '1'
+        warnings.filterwarnings('ignore')
+
         import torch
-        _orig_load = torch.load
-        _orig_is_available = torch.cuda.is_available
+
+        # Patch torch.cuda at the module level so pytorch_forecasting
+        # never triggers the NVIDIA driver check
+        torch.cuda.is_available = lambda: False
 
         def _safe_load(*args, **kwargs):
+            kwargs['weights_only'] = False
+            kwargs['map_location'] = torch.device('cpu')
+            return torch.__original_load__(*args, **kwargs) if hasattr(torch, '__original_load__') else torch._C._jit_get_operation('prim::Constant')  # noqa
+
+        # Safer: just patch map_location via the load override
+        _orig_load = torch.load
+
+        def _cpu_load(*args, **kwargs):
             kwargs['weights_only'] = False
             kwargs['map_location'] = 'cpu'
             return _orig_load(*args, **kwargs)
 
-        torch.load = _safe_load
-        torch.cuda.is_available = lambda: False
-        
-        # Force CPU — never attempt GPU on Windows dev
-        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-        warnings.filterwarnings('ignore')
+        torch.load = _cpu_load
 
         try:
             from pytorch_forecasting import TemporalFusionTransformer
@@ -66,18 +78,18 @@ def _attempt_tft_load(checkpoint_path: str, train_ds):
             )
         finally:
             torch.load = _orig_load
-            torch.cuda.is_available = _orig_is_available
 
+        model = model.cpu()
         model.eval()
         model.freeze()
         TFT_AVAILABLE = True
-        logger.info("TFT loaded successfully from %s", checkpoint_path)
+        logger.info("TFT loaded successfully from %s (CPU mode)", checkpoint_path)
         return model, True
 
     except Exception as e:
         TFT_AVAILABLE = False
         logger.warning(
-            "TFT model could not be loaded (expected on Windows dev): %s: %s",
+            "TFT model could not be loaded: %s: %s",
             type(e).__name__, e,
         )
         return None, False

@@ -20,6 +20,7 @@ COPY . .
 ARG VITE_API_BASE_URL=
 ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
 
+RUN chmod +x node_modules/.bin/vite || true
 RUN npm run build:docker
 
 
