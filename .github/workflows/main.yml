@@ -23,6 +23,11 @@ jobs:
       # ── 2. Build backend image ──────────────────────────────────────────────
       - name: Build backend image
         run: |
+          mkdir -p backend/models
+          touch backend/models/catboost_best.cbm
+          touch backend/models/hybrid_graphsage_catboost_best.cbm
+          touch backend/models/tft_best-82-0.1107.ckpt
+          touch backend/models/city_embeddings_1.npy
           docker build \
             -t carbon-tracker-backend:ci \
             -f backend/Dockerfile \
