@@ -15,9 +15,9 @@ RUN npm ci --prefer-offline
 # Copy source and build
 COPY . .
 
-# VITE_API_BASE_URL is injected at build time by docker-compose build args.
-# The default points to the compose service name so it works out-of-the-box.
-ARG VITE_API_BASE_URL=http://backend:8000
+# In production (Docker/ACA), set to empty string so axios uses relative URLs
+# and nginx handles the reverse proxy. In dev, vite.config.ts proxy handles it.
+ARG VITE_API_BASE_URL=
 ENV VITE_API_BASE_URL=${VITE_API_BASE_URL}
 
 RUN npm run build:docker

@@ -55,6 +55,11 @@ COPY --chown=appuser:appgroup models/   ./models/
 
 USER appuser
 
+# numba (used by umap-learn) tries to cache JIT functions to its install directory,
+# which is read-only for the non-root appuser. Point it to /tmp instead.
+ENV NUMBA_CACHE_DIR=/tmp/numba_cache
+ENV MPLCONFIGDIR=/tmp/matplotlib_config
+
 # Uvicorn production port (matches HOST/PORT in .env.example)
 EXPOSE 8000
 

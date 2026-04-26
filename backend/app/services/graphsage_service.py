@@ -163,14 +163,34 @@ class GraphSAGEService:
         """
         UMAP 2-D projection of city embeddings, enriched with coordinates
         and aggregate lane statistics.  Cached after first call.
+        Falls back to PCA if umap-learn / numba is unavailable in the container.
         """
         if self._umap_cache is not None:
             return self._umap_cache
 
-        from umap import UMAP
-
-        reducer = UMAP(n_components=2, random_state=42, n_neighbors=min(15, len(self._city_to_idx) - 1))
-        coords_2d = reducer.fit_transform(self._embeddings)
+        try:
+            from umap import UMAP
+            reducer = UMAP(
+                n_components=2,
+                random_state=42,
+                n_neighbors=min(15, len(self._city_to_idx) - 1),
+            )
+            coords_2d = reducer.fit_transform(self._embeddings)
+            method = "UMAP"
+        except Exception as exc:
+            logger.warning(
+                "UMAP unavailable (%s: %s) — falling back to PCA 2-D projection",
+                type(exc).__name__, exc,
+            )
+            # PCA requires no native deps, always available via numpy
+            try:
+                from sklearn.decomposition import PCA
+                coords_2d = PCA(n_components=2, random_state=42).fit_transform(self._embeddings)
+                method = "PCA"
+            except Exception as exc2:
+                logger.error("PCA also failed (%s) — returning empty UMAP data", exc2)
+                self._umap_cache = []
+                return []
 
         # aggregate stats per city from lane_metadata
         city_stats: dict[str, dict] = {}
@@ -201,7 +221,7 @@ class GraphSAGEService:
             )
 
         self._umap_cache = points
-        logger.info("UMAP projection computed for %d cities", len(points))
+        logger.info("%s projection computed for %d cities", method, len(points))
         return points
 
     # ── internals ─────────────────────────────────────────────────────
